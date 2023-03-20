@@ -8,6 +8,7 @@ i=hang j=lie
 puzzle[lie][hang]
 '''
 
+
 def which_house(i, j):  # 哪一宫
     if i < 4:
         for m in itertools.product([1, 2, 3], repeat=2):
@@ -105,14 +106,14 @@ def this_lie_6(i, j):
 def order_in_house(i, j):  # 判断位于宫中第几个
     q = 3 if i % 3 == 0 else i % 3
     p = 3 if j % 3 == 0 else j % 3
-    return (q-1) * 3 + p
+    return (q - 1) * 3 + p
 
 
 def this_20_ge(i, j):  # 给出冲突域的20个(除去自己)
     ge20 = []
     for k in this_house(which_house(i, j)):
         ge20.append(k)
-    ge20.pop(order_in_house(i, j)-1)
+    ge20.pop(order_in_house(i, j) - 1)
     for k in this_hang_6(i, j):
         ge20.append(k)
     for k in this_lie_6(i, j):
@@ -124,36 +125,36 @@ def house_is_ok(n):  # 宫有无冲突
     house = np.array(this_house(n))
     for m in house:
         if m == 0:
-            print("第{0}宫不完整".format(n))
+            print("第{}宫不完整".format(n))
             return
     if house.sum() != 45:
-        print("第{0}宫有冲突/问题".format(n))
+        print("第{}宫有冲突/问题".format(n))
     else:
-        print("第{0}宫完整".format(n))
+        print("第{}宫完整".format(n))
 
 
 def hang_is_ok(n):  # 行有无冲突
     hang = np.array(puzzle.loc[n])
     for m in hang:
         if m == 0:
-            print("第{0}行不完整".format(n))
+            print("第{}行不完整".format(n))
             return
     if hang.sum() != 45:
-        print("第{0}行有冲突/问题".format(n))
+        print("第{}行有冲突/问题".format(n))
     else:
-        print("第{0}行完整".format(n))
+        print("第{}行完整".format(n))
 
 
 def lie_is_ok(n):  # 行有无冲突
     lie = np.array(puzzle[n])
     for m in lie:
         if m == 0:
-            print("第{0}列不完整".format(n))
+            print("第{}列不完整".format(n))
             return
     if lie.sum() != 45:
-        print("第{0}列有冲突/问题".format(n))
+        print("第{}列有冲突/问题".format(n))
     else:
-        print("第{0}列完整".format(n))
+        print("第{}列完整".format(n))
 
 
 def check_all():  # 检查所有
@@ -163,15 +164,16 @@ def check_all():  # 检查所有
         lie_is_ok(i)
 
 
-def get_next(i,j):  # 找到下一个空位
-    for k in range(j+1, 10):
+def get_next(i, j):  # 找到下一个空位
+    for k in range(j + 1, 10):
         if puzzle[k][i] == 0:
             return i, k
-    for j in range(i+1, 10):
+    for j in range(i + 1, 10):
         for l in range(1, 10):
             if puzzle[l][j] == 0:
                 return j, l
     return -1, -1
+
 
 '''
 print(puzzle[9][9])
@@ -187,6 +189,3 @@ lie_is_ok(3)
 check_all()
 print(get_next(9,8))
 '''
-
-
-
