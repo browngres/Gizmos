@@ -33,10 +33,11 @@ class Challenge:
         self.passing_value = passing_value
 
     def verify_solution(self, selected):
-        if list(set(selected)) != selected:
+        print("===============")
+        if len(set(selected)) != len(selected):
             raise Exception("选择列表有重复")
         for i in selected:
-            if i > self.difficulty.num_items:
+            if i >= self.difficulty.num_items:
                 raise IndexError("选择列表越界")
         # 计算选定物品的总重量
         total_w = sum(self.weights[i] for i in selected)
@@ -46,9 +47,11 @@ class Challenge:
             raise ValueError(f"超重： {total_w} > {self.capacity}")
         # 计算选定物品的总价值
         total_v = sum(self.values[i] for i in selected)
+        print(f"select 总价值：{total_v}")
         if total_v < self.passing_value:
             raise ValueError(f"价值不足： {total_v} < {self.passing_value}")
 
+        print("通过。")
         return True
 
 
@@ -104,13 +107,3 @@ def generate_instance(seeds, d: Difficulty):
         capacity,
         passing_value
     )
-
-
-if __name__ == '__main__':
-    num_items = 10
-    better_than_baseline = 10
-    difficulty = Difficulty(num_items, better_than_baseline)
-    seeds = [0] * 8
-
-    challenge = generate_instance(seeds, difficulty)
-    challenge.verify_solution([1, 2, 3, 4, 5])
