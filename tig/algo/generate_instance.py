@@ -33,7 +33,6 @@ class Challenge:
         self.passing_value = passing_value
 
     def verify_solution(self, selected):
-        print("===============")
         if len(set(selected)) != len(selected):
             raise Exception("选择列表有重复")
         for i in selected:
@@ -88,12 +87,15 @@ def generate_instance(seeds, d: Difficulty):
     # 遍历排序后的物品索引
     total_weight = 0
     greedy_value = 0
+    greedy_selected = []
     for item in sorted_v_to_w_ratio:
         if total_weight + weights[item] > capacity:
             continue
         greedy_value += values[item]
         total_weight += weights[item]
+        greedy_selected.append(item)
 
+    print("greedy selected：", greedy_selected)
     print("基准难度：", d.better_than_baseline)
     print("贪心基准线：", greedy_value)
     passing_value = round(greedy_value * (1 + d.better_than_baseline / 1000))
