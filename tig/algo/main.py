@@ -1,18 +1,21 @@
-from tig.algo.dp_2d import knapsack_dp
-from tig.algo.dp_1d import knapsack_dp_comp
-from tig.algo.generate_instance import Difficulty, generate_instance
+from random import random
 
 # from tig.algo.brute_force import brute_force
 # from tig.algo.dfs import knapsack_dfs
 from tig.algo.dfs_mem import knapsack_dfs_mem
-# from tig.algo.annealing import annealing_algorithm
+from tig.algo.dp_1d_selected import knapsack_dp_select
+from tig.algo.dp_2d import knapsack_dp
+from tig.algo.dp_1d import knapsack_dp_comp
+from tig.algo.annealing import annealing_algorithm
 
+from tig.algo.generate_instance import Difficulty, generate_instance
 
 if __name__ == '__main__':
-    num_items = 100
-    better_than_baseline = 15
+    num_items = 80
+    better_than_baseline = 10
     difficulty = Difficulty(num_items, better_than_baseline)
-    seeds = [0] * 8
+    # seeds = [0] * 8
+    seeds = [random()] * 8
     c = generate_instance(seeds, difficulty)
 
     '''
@@ -29,7 +32,7 @@ if __name__ == '__main__':
     weights = c.weights
     values = c.values
     capacity = c.capacity
-    n =c.difficulty.num_items
+    n = c.difficulty.num_items
 
     # key = [6, 8, 1, 4, 2, 5, 9]
     # print("======答案=========")
@@ -57,9 +60,14 @@ if __name__ == '__main__':
     res4 = knapsack_dp_comp(weights, values, capacity)
     print("一维 dp：", res4)
 
+    # 一维 dp 带选择
+    res5, res5_selected = knapsack_dp_select(weights, values, capacity)
+    print("一维 dp 带选择的结果：", res5)
+    print("一维 dp 带选择的挑选：, ", res5_selected)
+    print("一维 dp 带选择的挑选个数：", len(res5_selected))
     # 退火
     # best_v, best = annealing_algorithm(c, init_temp=100, steps=1000)
     # selected = [index for index, value in enumerate(best) if value == 1]
-    # print("===============")
     # print(selected)
     # c.verify_solution(selected)
+

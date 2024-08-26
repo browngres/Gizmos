@@ -97,8 +97,10 @@ def generate_instance(seeds, d: Difficulty):
         total_weight += weights[item]
         greedy_selected.append(item)
 
-    print("greedy selected：", greedy_selected)
-    print("greedy selected 数量：" , len(greedy_selected))
+    # print("greedy selected：", greedy_selected)
+    greedy_selected.sort()
+    print("greedy selected sorted：", greedy_selected)
+    print("greedy selected 数量：", len(greedy_selected))
     print("基准难度：", d.better_than_baseline)
     print("贪心基准线：", greedy_value)
     passing_value = round(greedy_value * (1 + d.better_than_baseline / 1000))
