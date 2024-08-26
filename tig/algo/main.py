@@ -11,8 +11,8 @@ from tig.algo.annealing import annealing_algorithm
 from tig.algo.generate_instance import Difficulty, generate_instance
 
 if __name__ == '__main__':
-    num_items = 80
-    better_than_baseline = 10
+    num_items = 60
+    better_than_baseline = 25
     difficulty = Difficulty(num_items, better_than_baseline)
     # seeds = [0] * 8
     seeds = [random()] * 8

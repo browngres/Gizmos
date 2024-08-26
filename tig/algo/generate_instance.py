@@ -90,14 +90,14 @@ def generate_instance(seeds, d: Difficulty):
     greedy_selected = []
     for item in sorted_v_to_w_ratio:
         if total_weight + weights[item] > capacity:
-            print(f"出现拿不下，当前贪心拿了 {len(greedy_selected)} 个, 总重：{total_weight}")
-            print(f"这个价值密度为： ", values[item]/weights[item])
+            # print(f"出现拿不下，当前贪心拿了 {len(greedy_selected)} 个, 总重：{total_weight}")
+            # print(f"这个价值密度为： ", values[item]/weights[item])
             continue
         greedy_value += values[item]
         total_weight += weights[item]
         greedy_selected.append(item)
 
-    # print("greedy selected：", greedy_selected)
+    print("greedy selected：", greedy_selected)
     greedy_selected.sort()
     print("greedy selected sorted：", greedy_selected)
     print("greedy selected 数量：", len(greedy_selected))
