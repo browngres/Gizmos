@@ -47,6 +47,7 @@ if __name__ == '__main__':
     # res1 = knapsack_dfs(c.weights,c.values,c.difficulty.num_items,c.capacity)
     # print("暴力求解 dfs：", res1)
 
+    '''
     # 暴力求解 dfs_mem
     mem = [[-1] * (capacity + 1) for _ in range(n + 1)]
     res2 = knapsack_dfs_mem(weights, values, mem, n, capacity)
@@ -55,7 +56,7 @@ if __name__ == '__main__':
     # 二维 dp
     res3 = knapsack_dp(weights, values, capacity)
     print("二维 dp：", res3)
-
+    '''
     # 一维 dp
     res4 = knapsack_dp_comp(weights, values, capacity)
     print("一维 dp：", res4)
@@ -63,7 +64,7 @@ if __name__ == '__main__':
     # 一维 dp 带选择
     res5, res5_selected = knapsack_dp_select(weights, values, capacity)
     print("一维 dp 带选择的结果：", res5)
-    print("一维 dp 带选择的挑选：, ", res5_selected)
+    print("一维 dp 带选择的挑选：", res5_selected)
     print("一维 dp 带选择的挑选个数：", len(res5_selected))
     # 退火
     # best_v, best = annealing_algorithm(c, init_temp=100, steps=1000)
