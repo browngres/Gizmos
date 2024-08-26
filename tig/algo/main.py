@@ -1,3 +1,5 @@
+from tig.algo.dp_2d import knapsack_dp
+from tig.algo.dp_1d import knapsack_dp_comp
 from tig.algo.generate_instance import Difficulty, generate_instance
 
 # from tig.algo.brute_force import brute_force
@@ -28,7 +30,11 @@ if __name__ == '__main__':
     values = c.values
     capacity = c.capacity
     n =c.difficulty.num_items
-    key = [6, 8, 1, 4, 2, 5, 9]
+
+    # key = [6, 8, 1, 4, 2, 5, 9]
+    # print("======答案=========")
+    # c.verify_solution(key)
+    print("===============")
     # 暴力求解
     # best_v, best_combination = brute_force(c)
     # selected = [index for index, value in enumerate(best_combination) if value == 1]
@@ -39,15 +45,21 @@ if __name__ == '__main__':
     # print("暴力求解 dfs：", res1)
 
     # 暴力求解 dfs_mem
-    print("===============")
     mem = [[-1] * (capacity + 1) for _ in range(n + 1)]
     res2 = knapsack_dfs_mem(weights, values, mem, n, capacity)
     print("暴力求解 dfs：", res2)
+
+    # 二维 dp
+    res3 = knapsack_dp(weights, values, capacity)
+    print("二维 dp：", res3)
+
+    # 一维 dp
+    res4 = knapsack_dp_comp(weights, values, capacity)
+    print("一维 dp：", res4)
+
     # 退火
     # best_v, best = annealing_algorithm(c, init_temp=100, steps=1000)
     # selected = [index for index, value in enumerate(best) if value == 1]
-    # print("======答案=========")
-    # c.verify_solution(key)
     # print("===============")
     # print(selected)
     # c.verify_solution(selected)
