@@ -28,11 +28,10 @@ if __name__ == '__main__':
     greedy_selected = []
     limit1 = 0.0
     limit1_flag = True
-    limit2_flag = 0
     limit2 = 0.0
-
+    limit2_flag = 0
     remain = capacity
-    # 123
+
     for i in range(n):
         item = sorted_v_to_w_ratio[i]
         if weights[item] > remain:

@@ -66,6 +66,7 @@ if __name__ == '__main__':
     print("一维 dp 带选择的结果：", res5)
     print("一维 dp 带选择的挑选：", res5_selected)
     print("一维 dp 带选择的挑选个数：", len(res5_selected))
+
     # 退火
     # best_v, best = annealing_algorithm(c, init_temp=100, steps=1000)
     # selected = [index for index, value in enumerate(best) if value == 1]
