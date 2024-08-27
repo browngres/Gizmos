@@ -88,6 +88,7 @@ def generate_instance(seeds, d: Difficulty):
     total_weight = 0
     greedy_value = 0
     greedy_selected = []
+    print("价值密度排序：", sorted_v_to_w_ratio)
     for item in sorted_v_to_w_ratio:
         if total_weight + weights[item] > capacity:
             # print(f"出现拿不下，当前贪心拿了 {len(greedy_selected)} 个, 总重：{total_weight}")
