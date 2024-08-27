@@ -51,3 +51,8 @@ if __name__ == '__main__':
     print("最小值百分位：", 100 * min(selected_count)/num_items)
 
     # 问题规模 60-100 之内， 贪婪选取百分位平均值恰恰在 62-64% 。
+
+    # 95% 置信区间
+    import numpy as np
+    import scipy.stats as st
+    print(st.norm.interval(confidence=0.95, loc=np.mean(selected_count), scale=st.sem(selected_count)))
