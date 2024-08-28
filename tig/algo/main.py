@@ -61,7 +61,7 @@ if __name__ == '__main__':
     res4 = knapsack_dp_comp(weights, values, capacity)
     print("一维 dp：", res4)
 
-    # 一维 dp 带选择
+    # 一维 dp 带选择（二维）
     res5, res5_selected = knapsack_dp_select(weights, values, capacity)
     print("一维 dp 带选择的结果：", res5)
     print("一维 dp 带选择的挑选：", res5_selected)

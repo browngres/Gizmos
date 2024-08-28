@@ -9,8 +9,9 @@ def knapsack_dp_select(w: list[int], v: list[int], cap: int) -> tuple[int, list[
         for c in range(cap, w[i-1] - 1, -1):
             if w[i - 1] <= c:
                 # 如果选择当前物品 i
-                if dp[c] < dp[c - w[i - 1]] + v[i - 1]:
-                    dp[c] = dp[c - w[i - 1]] + v[i - 1]
+                take = dp[c - w[i - 1]] + v[i - 1]
+                if dp[c] < take:
+                    dp[c] = take
                     # 更新选中物品列表
                     selected_items[c] = selected_items[c - w[i - 1]] + [i - 1]
 
