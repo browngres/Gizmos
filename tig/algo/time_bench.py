@@ -3,7 +3,7 @@ from random import random
 
 from tig.algo.dfs_mem import knapsack_dfs_mem
 from tig.algo.dp_1d import knapsack_dp_comp
-from tig.algo.dp_1d_selected import knapsack_dp_select
+from tig.algo.dp_1d_selected_2d import knapsack_dp_select
 from tig.algo.generate_instance import Difficulty, generate_instance
 
 # 测试性能

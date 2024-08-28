@@ -3,7 +3,7 @@ from random import random
 # from tig.algo.brute_force import brute_force
 # from tig.algo.dfs import knapsack_dfs
 from tig.algo.dfs_mem import knapsack_dfs_mem
-from tig.algo.dp_1d_selected import knapsack_dp_select
+from tig.algo.dp_1d_selected_2d import knapsack_dp_select
 from tig.algo.dp_2d import knapsack_dp
 from tig.algo.dp_1d import knapsack_dp_comp
 from tig.algo.annealing import annealing_algorithm

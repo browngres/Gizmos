@@ -1,7 +1,7 @@
 import math
 from random import random
 
-from tig.algo.dp_1d_selected import knapsack_dp_select
+from tig.algo.dp_1d_selected_2d import knapsack_dp_select
 from tig.algo.generate_instance import RngArray
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 import math
 
 from tig.algo.dp_1d import knapsack_dp_comp
-from tig.algo.dp_1d_selected import knapsack_dp_select
+from tig.algo.dp_1d_selected_2d import knapsack_dp_select
 
 if __name__ == '__main__':
     # rust   seed 666   n 60
